@@ -2,14 +2,16 @@
 
 import { navLinks } from '@/Constants'; 
 
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import Image from 'next/image'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Button } from '../ui/button'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import { Button } from '../ui/button';
 
 const Sidebar = () => {
-  const pathname = usePathname();
+  const router = useRouter(); // Updated this line
+  const pathname = router.pathname; // Updated this line
 
   return (
     <aside className="sidebar">
@@ -22,7 +24,7 @@ const Sidebar = () => {
           <SignedIn>
             <ul className="sidebar-nav_elements">
               {navLinks.slice(0, 6).map((link) => {
-                const isActive = link.route === pathname
+                const isActive = link.route === pathname;
 
                 return (
                   <li key={link.route} className={`sidebar-nav_element group ${
@@ -43,10 +45,9 @@ const Sidebar = () => {
               })}
               </ul>
 
-
             <ul className="sidebar-nav_elements">
               {navLinks.slice(6).map((link) => {
-                const isActive = link.route === pathname
+                const isActive = link.route === pathname;
 
                 return (
                   <li key={link.route} className={`sidebar-nav_element group ${
@@ -80,7 +81,7 @@ const Sidebar = () => {
         </nav>
       </div>
     </aside>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;

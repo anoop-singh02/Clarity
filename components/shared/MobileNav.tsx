@@ -1,4 +1,3 @@
-
 "use client"
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -6,11 +5,12 @@ import { navLinks } from "@/Constants";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { useRouter } from "next/router"
 import { Button } from "../ui/button"
 
 const MobileNav = () => {
-  const pathname = usePathname();
+  const router = useRouter();
+  const pathname = router.pathname;
 
   return (
     <header className="header">
@@ -48,7 +48,7 @@ const MobileNav = () => {
 
               <ul className="header-nav_elements">
               {navLinks.map((link) => {
-                const isActive = link.route === pathname
+                const isActive = link.route === pathname;
 
                 return (
                   <li 
