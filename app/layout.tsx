@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { ClerkProvider } from "@clerk/nextjs"; // Correct import
+import { ClerkProvider as CustomClerkProvider } from "@clerk/nextjs";
 
 const IBMPlex = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -10,18 +9,13 @@ const IBMPlex = IBM_Plex_Sans({
   variable: '--font-ibm-plex'
 });
 
-export const metadata: Metadata = {
-  title: "Clarity",
-  description: "AI-powered image generator",
-};
-
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <ClerkProvider appearance={{
+    <CustomClerkProvider appearance={{
       variables: {
         colorPrimary: '#624cf5'
       }
@@ -31,6 +25,6 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </ClerkProvider>
+    </CustomClerkProvider>
   );
 }

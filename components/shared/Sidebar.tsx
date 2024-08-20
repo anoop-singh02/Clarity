@@ -1,16 +1,15 @@
+
 "use client"
 
-import { navLinks } from '@/Constants'; 
-
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // Correct import
-
-import { Button } from '../ui/button';
+import { navLinks } from '@/constants'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Button } from '../ui/button'
 
 const Sidebar = () => {
-  const pathname = usePathname(); // Correct hook usage
+  const pathname = usePathname();
 
   return (
     <aside className="sidebar">
@@ -23,7 +22,7 @@ const Sidebar = () => {
           <SignedIn>
             <ul className="sidebar-nav_elements">
               {navLinks.slice(0, 6).map((link) => {
-                const isActive = link.route === pathname;
+                const isActive = link.route === pathname
 
                 return (
                   <li key={link.route} className={`sidebar-nav_element group ${
@@ -42,11 +41,12 @@ const Sidebar = () => {
                   </li>
                 )
               })}
-            </ul>
+              </ul>
+
 
             <ul className="sidebar-nav_elements">
               {navLinks.slice(6).map((link) => {
-                const isActive = link.route === pathname;
+                const isActive = link.route === pathname
 
                 return (
                   <li key={link.route} className={`sidebar-nav_element group ${
@@ -80,7 +80,7 @@ const Sidebar = () => {
         </nav>
       </div>
     </aside>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar
