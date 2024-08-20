@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-// Adjust this import according to what you find in the Clerk documentation
-import { ClerkProvider as CustomClerkProvider } from "@clerk/nextjs"; 
+import { ClerkProvider } from "@clerk/nextjs"; // Correct import
 
 const IBMPlex = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -22,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <CustomClerkProvider appearance={{
+    <ClerkProvider appearance={{
       variables: {
         colorPrimary: '#624cf5'
       }
@@ -32,6 +31,6 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </CustomClerkProvider>
+    </ClerkProvider>
   );
 }

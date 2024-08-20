@@ -5,13 +5,12 @@ import { navLinks } from '@/Constants';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation'; // Correct import
 
 import { Button } from '../ui/button';
 
 const Sidebar = () => {
-  const router = useRouter(); // Updated this line
-  const pathname = router.pathname; // Updated this line
+  const pathname = usePathname(); // Correct hook usage
 
   return (
     <aside className="sidebar">
@@ -43,7 +42,7 @@ const Sidebar = () => {
                   </li>
                 )
               })}
-              </ul>
+            </ul>
 
             <ul className="sidebar-nav_elements">
               {navLinks.slice(6).map((link) => {
