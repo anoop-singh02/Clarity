@@ -1,4 +1,4 @@
 declare module 'cloudinary' {
-  const cloudinary: any;
-  export = cloudinary;
+  const v2: any;
+  export { v2 };
 }
