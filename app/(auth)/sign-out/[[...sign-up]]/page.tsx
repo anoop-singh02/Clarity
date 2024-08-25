@@ -1,7 +1,8 @@
-import { SignedOut } from '@clerk/nextjs';
+
+import { SignUp } from '@clerk/nextjs'
 
 const SignUpPage = () => {
-  return <SignedOut>{/* Your sign-up content goes here */}</SignedOut>;
-};
+  return <SignUp />
+}
 
-export default SignUpPage;
+export default SignUpPage
